@@ -66,6 +66,8 @@ gem 'tzinfo-data', '~> 1.2015.1'
 # New Relic for application metrics
 gem 'newrelic_rpm', '~> 3.10.0.279'
 
+gem 'bookable'
+
 # Bundle on OSX and Linux only. (including deployment)
 platforms :ruby do
 	# Unicorn for worker process management (won't bundle on non-unix)

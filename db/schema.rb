@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208193906) do
+ActiveRecord::Schema.define(version: 20150301165313) do
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "length"
+    t.integer  "room_id"
+  end
+
+  add_index "bookings", ["room_id"], name: "index_bookings_on_room_id"
 
   create_table "rmcats", force: :cascade do |t|
     t.string   "rmtype"

@@ -14,17 +14,15 @@
   <fieldset>
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: 'Name of the Room' %>
   </div>
   <div class="field">
 		<%= f.label :rmcat_id, "Room Type:" %><br />
-	<%= f.collection_select :rmcat_id, Rmcat.all,
-      :id,:rmcat_info, {:include_blank => 'Please Select'} %>
-
+	<%= f.collection_select :rmcat_id, Rmcat.all, :id,:rmcat_info, {:include_blank => 'Please Select'} %>
   </div>
   <div class="field">
     <%= f.label :description, "Description:" %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, placeholder: 'Short room Description' %>
   </div>
   <div class="field">
     <%= f.label :size, "Size (square feet):" %><br>
@@ -32,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :capacity, "Capacity:" %><br>
-    <%= f.number_field :capacity %>
+    <%= f.number_field :capacity, placeholder: 'Capacity by Chair' %>
   </div>
   <div class="field">
     <%= f.label :price, "Price:" %><br>
