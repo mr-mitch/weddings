@@ -1,6 +1,9 @@
 class BookingsController < ApplicationController
+  # @see def resource_not_found
+  around_filter :resource_not_found
   respond_to :html, :xml, :json
-
+  load_and_authorize_resource
+	skip_authorize_resource :only => :show
   before_action :find_room
 
   def index
@@ -72,6 +75,12 @@ class BookingsController < ApplicationController
     if params[:room_id]
       @room = Room.find_by_id(params[:room_id])
     end
+  end
+
+  def resource_not_found
+    yield
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url, :notice => "Booking not found."
   end
 
 end
