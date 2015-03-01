@@ -5,7 +5,7 @@ gem 'rails', '4.2.0'
 # Use SCSS for stylesheets.
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets.
-gem 'uglifier', '~> 2.7.0'
+gem 'uglifier', '~> 2.7.1'
 # Use CoffeeScript for .coffee assets and views.
 gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library.
@@ -32,24 +32,34 @@ group :development do
 	# Database Cleaner for testing
 	gem 'database_cleaner', '~> 1.4.0'
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-	gem 'spring', '~> 1.3.2'
+	gem 'spring', '~> 1.3.3'
 	# Access an IRB console on exception pages or by using <%= console %> in views
-	gem 'web-console', '~> 2.0.0'
+	gem 'web-console', '~> 2.1.0'
 	# CLI gem for atom-beautify package. (Ctrl+Alt+B)
-	gem 'ruby-beautify'
+	gem 'ruby-beautify', '~> 0.97.2'
 	# Call 'byebug' anywhere in the code to stop execution and get a debugger console
 	# gem 'byebug', '~> 3.5.1'
 end
 
 group :test do
 	# Codeclimate Test Reporting
-	gem 'codeclimate-test-reporter', '~> 0.4.6', require: nil
+	gem 'codeclimate-test-reporter', '~> 0.4.7', require: nil
 end
 
 group :doc do
 	# Yard for documentation, replaces sdoc
 	gem 'yard', '~> 0.8.7.6'
 end
+
+# Bundle on OSX and Linux only. (including deployment)
+platforms :ruby do
+	# Unicorn for worker process management (won't bundle on non-unix)
+	# => should now only bundle on OSX & Linux. And hopefully deploy!
+	gem 'unicorn', '~> 4.8.3', :platforms => :ruby
+end
+
+# tz-info for windows timezone data.
+gem 'tzinfo-data', '~> 1.2015.1'
 
 # Devise for authentication.
 gem 'devise', '~> 3.4.1'
@@ -60,17 +70,11 @@ gem 'cancancan', '~> 1.10.1'
 # Paperclip for better image uploads.
 gem 'paperclip', '~> 4.2.1'
 
-# tz-info for windows timezone data.
-gem 'tzinfo-data', '~> 1.2015.1'
+# Bookable creates all elements needed to use fullcalender (bookable objects)
+gem 'bookable', '~> 0.0.52'
 
 # New Relic for application metrics
 gem 'newrelic_rpm', '~> 3.10.0.279'
 
-gem 'bookable'
-
-# Bundle on OSX and Linux only. (including deployment)
-platforms :ruby do
-	# Unicorn for worker process management (won't bundle on non-unix)
-	# => should now only bundle on OSX & Linux. And hopefully deploy!
-	gem 'unicorn', '~> 4.8.3', :platforms => :ruby
-end
+# keen.io for tracking metrics
+gem 'keen', '~> 0.8.9'
