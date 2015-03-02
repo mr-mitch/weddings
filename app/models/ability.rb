@@ -4,9 +4,7 @@ class Ability
 	def initialize(user)
 		user ||= User.new # guest user (not logged in)
 		if user.admin?
-			can [:manage], [Room, Rmcat]
-		else
-			can [:read], [Room, Rmcat]
+			can [:manage], [Room, Rmcat, Booking]
 		end
 		if user.customer?
 			can [:read], [Room]
