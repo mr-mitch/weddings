@@ -18,6 +18,5 @@ If possible provide a snippet of code, and the syntax if possible. Check the gui
 ##### 3. Push your repository
 ##### 4. Make a pull request, this will get reviewed/discussed.
 ##### 5. If it's good and passes the tests, it should get pulled in!
-##### 6. We're always looking for people to help improve our Gruntjs related files :zap:
 
-###### Needs more work :octocat:
+###### Needs more work (emphasise branches) :octocat:
