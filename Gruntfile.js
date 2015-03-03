@@ -21,8 +21,8 @@ module.exports = function(grunt) {
 				}
 			},
 			'weddings': {
-				src: 'build/fileoutput.js',
-				dest: 'build/fileoutput.min.js'
+				src: 'app/assets/javascripts/custom.js',
+				dest: 'build/testfileoutput.min.js'
 			}
 		},
 
