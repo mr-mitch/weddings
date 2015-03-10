@@ -59,7 +59,7 @@ module Viewable
 
   def as_json(options = {})
    {
-    :id => "Viewing",
+    :title => "Viewing",
     :start => self.start_time,
     :end => self.end_time + 60,
     :recurring => false,
