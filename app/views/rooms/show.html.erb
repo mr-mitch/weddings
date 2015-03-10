@@ -58,11 +58,16 @@
       <% if not @room.price.blank? %>
         Room Price: <%=number_to_currency @room.price, unit: "£" %>
       <% end %><br/>
+
       <% if can? :update, @room %>
         <%= link_to "Edit", edit_room_path(@room) %>
       <% end %>
+
       <%= link_to 'Back', rooms_path %>
       <%= link_to 'Add viewing', new_room_viewing_path(@room) %>
-      <%= link_to 'Show viewings', room_viewings_path(@room) %>
+
+      <!-- <%# if can? :read, @viewing %> -->
+        <%= link_to 'Show viewings', room_viewings_path(@room) %>
+      <!-- <%# end %> -->
     </div>
 </div>
